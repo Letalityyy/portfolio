@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio d'Apprentissage - BUT Informatique RACDV</title>
+    <link href="../public/css/styles.css" rel="stylesheet" />
+    <script defer src="../public/js/script.js"></script>
+    <style>
+        .competency-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .competency-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .competency-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+        }
+        .competency-icon {
+            font-size: 2rem;
+            background: rgba(var(--primary-color-rgb), 0.1);
+            padding: 1rem;
+            border-radius: 50%;
+            color: var(--primary-color);
+        }
+        .competency-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .competency-level {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-style: italic;
+        }
+        .competency-traces {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .trace-badge {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .trace-badge:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+        .competency-body {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+            background: rgba(255,255,255,0.02);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .matrix-table th, .matrix-table td {
+            padding: 1rem;
+            border: 1px solid var(--card-border);
+            text-align: center;
+        }
+        .matrix-table th {
+            background: rgba(255,255,255,0.05);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .matrix-table td:first-child {
+            text-align: left;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        .check-icon {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<!-- Animated Background -->
+<div class="bg-animation"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <div class="logo">NW.</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Accueil</a></li>
+            <li><a href="index.html#projects">Projets</a></li>
+            <li><a href="portfolio-apprentissage.html" class="active">Portfolio BUT</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero project-hero" style="min-height: 40vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 100px;">
+    <div class="container">
+        <h1 style="font-size: 3.5rem; margin-bottom: 1rem;"><span class="name-highlight">Portfolio d'Apprentissage</span></h1>
+        <p class="project-subtitle" style="font-size: 1.3rem; opacity: 0.9; max-width: 800px; margin: 0 auto;">
+            Bilan réflexif sur l'acquisition des compétences du BUT Informatique<br>
+            <span style="color: var(--secondary); font-size: 1.1rem;">Parcours Réalisation d'Applications : Conception, Développement, Validation (RACDV)</span>
+        </p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section style="padding: 4rem 0;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto;">
+        
+        <!-- Intro -->
+        <div style="margin-bottom: 4rem; text-align: center;">
+            <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-color);">
+                Au cours de mes 3 années de BUT Informatique à l'IUT Montpellier-Sète, j'ai eu l'opportunité de participer à de nombreuses Situations d'Apprentissage et d'Évaluation (SAÉ) ainsi qu'à une immersion professionnelle (Stage). Ce document a pour but de tracer le lien direct entre mes projets et l'acquisition des 6 compétences fondamentales définies par le programme national (parcours RACDV).
+            </p>
+        </div>
+
+        <!-- Matrice des Compétences -->
+        <h2 style="margin-bottom: 1.5rem; color: var(--primary-color); font-size: 2rem; text-align: center;">Matrice des Compétences</h2>
+        <div style="overflow-x: auto;">
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>Traces / Projets</th>
+                        <th>1. Réaliser</th>
+                        <th>2. Optimiser</th>
+                        <th>3. Administrer</th>
+                        <th>4. Gérer les données</th>
+                        <th>5. Conduire un projet</th>
+                        <th>6. Collaborer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="projet-meteo.html" style="color: inherit; text-decoration: none;">SAÉ Météo</a></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td>-</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="projet-nexteam.html" style="color: inherit; text-decoration: none;">Stage Nexteam</a></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td>-</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="projet-poursuite-etudes.html" style="color: inherit; text-decoration: none;">SAÉ Poursuite d'Études</a></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td><a href="projet-trains.html" style="color: inherit; text-decoration: none;">SAÉ Trains</a></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><span class="check-icon">✓</span></td>
+                        <td><span class="check-icon">✓</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Compétence 1 -->
+        <div class="competency-card" id="comp-realiser">
+            <div class="competency-header">
+                <div class="competency-icon">💻</div>
+                <div>
+                    <h3 class="competency-title">Compétence 1 : Réaliser</h3>
+                    <div class="competency-level">Réaliser le développement d'applications informatiques</div>
+                </div>
+            </div>
+            <div class="competency-traces">
+                <strong>Traces liées :</strong>
+                <a href="projet-meteo.html" class="trace-badge">SAÉ Météo</a>
+                <a href="projet-nexteam.html" class="trace-badge">Stage Nexteam</a>
+                <a href="projet-poursuite-etudes.html" class="trace-badge">SAÉ Poursuite d'études</a>
+                <a href="projet-trains.html" class="trace-badge">SAÉ Trains</a>
+            </div>
+            <div class="competency-body">
+                <p>Cette compétence est le cœur de ma formation. À travers l'ensemble de mes projets, j'ai développé ma capacité à concevoir, coder et tester des applications complexes.</p>
+                <p>J'ai implémenté de nombreuses solutions allant du développement full-stack (<strong>Django</strong>, <strong>Symfony</strong>) au développement logiciel (<strong>Java, JavaFX</strong>). Je maîtrise l'architecture MVC et je sais concevoir des API REST robustes pour faire le pont entre un client interactif (JavaScript/HTML/CSS) et une base de données serveur.</p>
+            </div>
+        </div>
+
+        <!-- Compétence 2 -->
+        <div class="competency-card" id="comp-optimiser">
+            <div class="competency-header">
+                <div class="competency-icon">⚡</div>
+                <div>
+                    <h3 class="competency-title">Compétence 2 : Optimiser</h3>
+                    <div class="competency-level">Optimiser des applications informatiques</div>
+                </div>
+            </div>
+            <div class="competency-traces">
+                <strong>Traces liées :</strong>
+                <a href="projet-trains.html" class="trace-badge">SAÉ Trains</a>
+                <a href="projet-meteo.html" class="trace-badge">SAÉ Météo</a>
+            </div>
+            <div class="competency-body">
+                <p>L'optimisation va au-delà du simple fait que "le code fonctionne". Elle consiste à s'assurer de la performance temporelle et spatiale, ainsi que de la qualité architecturale.</p>
+                <p>J'ai développé ces aspects notamment dans la <strong>SAÉ Trains</strong>, où l'implémentation d'algorithmes de graphes complexes et le développement d'une IA (Intelligence Artificielle) pour l'adversaire m'ont imposé de faire des choix structurels performants. Du côté de la <strong>SAÉ Météo</strong>, le traitement d'importantes quantités de données météorologiques (AROME) a nécessité de formuler des requêtes API et des requêtes SQL efficientes.</p>
+            </div>
+        </div>
+
+        <!-- Compétence 3 -->
+        <div class="competency-card" id="comp-administrer">
+            <div class="competency-header">
+                <div class="competency-icon">🖥️</div>
+                <div>
+                    <h3 class="competency-title">Compétence 3 : Administrer</h3>
+                    <div class="competency-level">Administrer des systèmes informatiques communicants complexes</div>
+                </div>
+            </div>
+            <div class="competency-traces">
+                <strong>Traces liées :</strong>
+                <a href="projet-nexteam.html" class="trace-badge">Stage Nexteam</a>
+            </div>
+            <div class="competency-body">
+                <p>L'administration et le déploiement sont des éléments cruciaux abordés concrètement dans le milieu professionnel.</p>
+                <p>Lors de mon stage chez <strong>Nexteam</strong>, j'ai été amené à héberger et déployer une application sur des serveurs (OVH), à mettre en place un pipeline CI/CD sur <strong>Azure DevOps</strong>, et à sécuriser la connexion des administrateurs via <strong>LDAP</strong>. J'ai aussi appris à utiliser Docker pour faciliter l'environnement de développement et de déploiement.</p>
+            </div>
+        </div>
+
+        <!-- Compétence 4 -->
+        <div class="competency-card" id="comp-gerer">
+            <div class="competency-header">
+                <div class="competency-icon">💾</div>
+                <div>
+                    <h3 class="competency-title">Compétence 4 : Gérer des données</h3>
+                    <div class="competency-level">Gérer des données de l'information</div>
+                </div>
+            </div>
+            <div class="competency-traces">
+                <strong>Traces liées :</strong>
+                <a href="projet-poursuite-etudes.html" class="trace-badge">SAÉ Poursuite d'études</a>
+                <a href="projet-nexteam.html" class="trace-badge">Stage Nexteam</a>
+                <a href="projet-meteo.html" class="trace-badge">SAÉ Météo</a>
+            </div>
+            <div class="competency-body">
+                <p>Concevoir et requêter une base de données est une compétence que j'ai appliquée dans presque tous mes projets web.</p>
+                <p>Pour la <strong>SAÉ Poursuite d'études</strong>, il s'agissait d'importer de gros volumes de données via CSV et de les traiter au format SQL (Oracle) pour afficher des résultats sur-mesure (graphiques radar). Chez <strong>Nexteam</strong>, la gestion des accès (QR codes générés côté serveur) et la centralisation des logs d'historique s'est faite via des procédures stockées robustes et des jobs SQL planifiés.</p>
+            </div>
+        </div>
+
+        <!-- Compétence 5 -->
+        <div class="competency-card" id="comp-conduire">
+            <div class="competency-header">
+                <div class="competency-icon">📈</div>
+                <div>
+                    <h3 class="competency-title">Compétence 5 : Conduire un projet</h3>
+                    <div class="competency-level">Conduire un projet</div>
+                </div>
+            </div>
+            <div class="competency-traces">
+                <strong>Traces liées :</strong>
+                <a href="projet-poursuite-etudes.html" class="trace-badge">SAÉ Poursuite d'études</a>
+                <a href="projet-meteo.html" class="trace-badge">SAÉ Météo</a>
+                <a href="projet-trains.html" class="trace-badge">SAÉ Trains</a>
+            </div>
+            <div class="competency-body">
+                <p>Tout au long du BUT, nous avons été confrontés à la gestion de projet en méthode Agile. Les itérations de type Scrum nous ont appris à décomposer une tâche complexe.</p>
+                <p>J'ai d'ailleurs pu exercer le rôle de <strong>Scrum Master</strong> durant la SAÉ Poursuite d'Études. Cela m'a permis d'apprendre à animer les revues de sprint, suivre le kanban de l'équipe (sur Trello), ajuster les objectifs en fonction du temps, et m'assurer que les exigences clients étaient correctement cernées et respectées.</p>
+            </div>
+        </div>
+
+        <!-- Compétence 6 -->
+        <div class="competency-card" id="comp-collaborer">
+            <div class="competency-header">
+                <div class="competency-icon">🤝</div>
+                <div>
+                    <h3 class="competency-title">Compétence 6 : Collaborer</h3>
+                    <div class="competency-level">Travailler dans une équipe informatique</div>
+                </div>
+            </div>
+            <div class="competency-traces">
+                <strong>Traces liées :</strong>
+                <a href="projet-nexteam.html" class="trace-badge">Stage Nexteam</a>
+                <span class="trace-badge">Toutes les SAÉs</span>
+            </div>
+            <div class="competency-body">
+                <p>Le travail d'équipe est la norme en entreprise, ce qui rend cette compétence essentielle.</p>
+                <p>De mes travaux de groupe en SAÉs (jusqu'à 6 personnes pour le projet Météo) où le versioning (Git/GitLab) était primordial pour éviter les conflits, jusqu'à mon intégration au sein de la DSI de <strong>Nexteam</strong>. Là-bas, j'ai appris à communiquer efficacement avec des professionnels spécialisés (développeurs, admins réseaux, chef de projet) ayant des disponibilités limitées, ce qui renforce l'importance de la documentation technique et d'une communication claire.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Social Links -->
+<div class="social-links">
+    <a href="https://github.com/Letalityyy" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
+    </a>
+    <a href="https://www.linkedin.com/in/nathan-winter-0962a82aa/">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg>
+    </a>
+</div>
+</body>
+</html>
